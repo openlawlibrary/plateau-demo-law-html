@@ -2,7 +2,8 @@
   "general": {
     "libraryName": "City of San Mateo Law Library",
     "language": "en-US",
-    "gitOrgURL": "https://github.com/cityofsanmateo/",
+    "gitProviderURL": "https://github.com",
+    "gitOrgName": "cityofsanmateo",
     "liveSite": "https://sanmateo.ca.us.open.law/",
     "displayName": "City of San Mateo, California",
     "entityId": "us/ca/cities/san-mateo"
@@ -42,8 +43,8 @@
     "msapp": { "tileColor": "#FFFFFF" },
     "search": {
       "searchHost": "https://sanmateo.ca.us.open.law",
-      "queryUrl": "/v1/search",
-      "method": "POST"
+      "queryUrl": "/_search/global",
+      "method": "GET"
     },
     "openGraph": {
       "libraryName": "Open Law Library",
