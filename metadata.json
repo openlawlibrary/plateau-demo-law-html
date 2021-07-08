@@ -1,8 +1,9 @@
 {
   "meta": {
     "canonical-urls": {
-      "html": "",
+      "html": "https://demo.plateau.ng.open.law",
       "html-bulk": "https://github.com/openlawlibrary/plateau-demo-law-html",
+      "static-assets": "https://github.com/openlawlibrary/law-static-assets",
       "xml-bulk": "https://github.com/openlawlibrary/plateau-demo-law-xml"
     },
     "contact": {
