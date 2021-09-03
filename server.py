@@ -74,7 +74,12 @@ filetypes = {
     'woff2',
 }
 
-AUTH_PATH_PREFIXES = ('/_api/authenticate', '/_api/check-hashes', )
+AUTH_PATH_PREFIXES = (
+    '/_api/authenticate', 
+    '/_api/check-hashes', 
+    '/_portal/api/annotations', 
+    '/_portal/api/share'
+)
 HISTORICAL_VERSIONS_PATH_PREFIXES = ('/_publication', '/_date', '/_compare', )
 PORTAL_PATH_PREFIXES = ('/_portal', '/_api') + HISTORICAL_VERSIONS_PATH_PREFIXES
 
@@ -206,6 +211,19 @@ class RequestHandler(SimpleHTTPRequestHandler):
             body = self.rfile.read(content_len)
             return self._proxy(PORTAL_CLIENT_CLASS, PORTAL_HOST, 'portal', method='POST', body=body)
 
+    # Need to handle OPTIONS since they are sent before POST
+    def do_OPTIONS(self):
+        # Just proxy it to portal
+        return self._proxy(PORTAL_CLIENT_CLASS, PORTAL_HOST, 'portal', method='OPTIONS')
+
+    def do_DELETE(self):
+        return self._proxy(PORTAL_CLIENT_CLASS, PORTAL_HOST, 'portal', method='DELETE')
+
+    def do_PUT(self):
+        content_len = int(self.headers.get('Content-Length'))
+        body = self.rfile.read(content_len)
+        return self._proxy(PORTAL_CLIENT_CLASS, PORTAL_HOST, 'portal', method='PUT', body=body)
+
     def translate_path(self, path):
         """Translate a /-separated PATH to the local filename syntax.
 
@@ -252,7 +270,10 @@ class RequestHandler(SimpleHTTPRequestHandler):
             return index_page
 
     def end_headers(self):
-        self.send_header('Access-Control-Allow-Origin', '*')
+        # Commenting this since proxied response from the portal already contains
+        # this header. Having two `Allow-Origin` headers makes browser drop
+        # requests automatically.
+        # self.send_header('Access-Control-Allow-Origin', '*')
         SimpleHTTPRequestHandler.end_headers(self)
 
 

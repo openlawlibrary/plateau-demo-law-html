@@ -1,5 +1,19 @@
 {
   "meta": {
+    "build": {
+      "build-date": "2021-09-02",
+      "codified-date": "2017-08-09",
+      "platform": {
+        "reproducible": "false",
+        "version": "2.4.0"
+      },
+      "repositories": [
+        {
+          "commit": "cb9da73741aac0590ffd6a3550576fc1b5c90e17",
+          "name": "plateau-demo-law-xml"
+        }
+      ]
+    },
     "canonical-urls": {
       "html": "https://demo.plateau.ng.open.law",
       "html-bulk": "https://github.com/openlawlibrary/plateau-demo-law-html",
