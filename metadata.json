@@ -1,7 +1,7 @@
 {
   "meta": {
     "build": {
-      "build-date": "2021-09-06",
+      "build-date": "2021-09-07",
       "codified-date": "2017-08-09",
       "platform": {
         "reproducible": "false",
@@ -9,7 +9,7 @@
       },
       "repositories": [
         {
-          "commit": "214a918cab36809c8a880fb86cdc774f820c6dad",
+          "commit": "1df2a40bdc6e701a1be667225dc2d9c436d07b50",
           "name": "plateau-demo-law-xml"
         }
       ]
